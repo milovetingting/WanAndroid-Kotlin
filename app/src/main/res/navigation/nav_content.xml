@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_content"
+    app:startDestination="@id/tab_home">
+
+    <fragment
+        android:id="@+id/tab_home"
+        android:name="com.wangyz.wanandroid.kotlin.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/tab_architecture"
+        android:name="com.wangyz.wanandroid.kotlin.view.ArchitectureFragment"
+        android:label="fragment_architecture"
+        tools:layout="@layout/fragment_architecture" />
+    <fragment
+        android:id="@+id/tab_wx"
+        android:name="com.wangyz.wanandroid.kotlin.view.WxFragment"
+        android:label="fragment_wx"
+        tools:layout="@layout/fragment_wx" />
+    <fragment
+        android:id="@+id/tab_project"
+        android:name="com.wangyz.wanandroid.kotlin.view.ProjectFragment"
+        android:label="fragment_project"
+        tools:layout="@layout/fragment_project" />
+</navigation>
