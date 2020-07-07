@@ -10,6 +10,7 @@ import com.wangyz.wanandroid.kotlin.viewmodel.ArchitectureViewModel
  * 体系Fragment
  */
 class ArchitectureFragment : BaseFragment<FragmentArchitectureBinding, ArchitectureViewModel>() {
+
     override val classT: Class<ArchitectureViewModel>
         get() = ArchitectureViewModel::class.java
 

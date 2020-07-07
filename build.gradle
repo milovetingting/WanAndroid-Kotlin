@@ -42,4 +42,11 @@ ext {
     versionCode = 1
     versionName = "1.0"
     nav_version = "2.3.0-alpha01"
+    retrofit_version = "2.9.0"
+    converter_gson_version = "2.4.0"
+    gson_version = "2.8.5"
+    coroutines_version = "1.3.2"
+    paging_version = "2.1.0"
+    dataBinding_compiler_version = "3.5.3"
+    agentweb_version = "4.0.2"
 }

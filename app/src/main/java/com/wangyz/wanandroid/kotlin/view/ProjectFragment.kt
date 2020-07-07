@@ -10,6 +10,7 @@ import com.wangyz.wanandroid.kotlin.viewmodel.ProjectViewModel
  * 项目Fragment
  */
 class ProjectFragment : BaseFragment<FragmentProjectBinding, ProjectViewModel>() {
+
     override val classT: Class<ProjectViewModel>
         get() = ProjectViewModel::class.java
 

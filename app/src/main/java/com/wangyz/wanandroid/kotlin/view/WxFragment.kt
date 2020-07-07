@@ -10,6 +10,7 @@ import com.wangyz.wanandroid.kotlin.viewmodel.WxViewModel
  * 公众号Fragment
  */
 class WxFragment : BaseFragment<FragmentWxBinding, WxViewModel>() {
+
     override val classT: Class<WxViewModel>
         get() = WxViewModel::class.java
 

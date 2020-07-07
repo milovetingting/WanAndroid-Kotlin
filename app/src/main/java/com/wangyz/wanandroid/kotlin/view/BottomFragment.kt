@@ -16,6 +16,7 @@ import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
  */
 class BottomFragment :
     BaseFragment<FragmentBottomBinding, BottomViewModel>() {
+
     override val classT: Class<BottomViewModel>
         get() = BottomViewModel::class.java
 
@@ -29,5 +30,8 @@ class BottomFragment :
             viewModel?.binding?.bottomNavigation!!,
             navController
         )
+        viewModel.binding?.bottomNavigation.setOnNavigationItemReselectedListener {
+
+        }
     }
 }

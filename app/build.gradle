@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -24,6 +26,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    kapt {
+        generateStubs = true
+    }
 }
 
 dependencies {
@@ -39,4 +48,12 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment:${rootProject.ext.nav_version}"
     implementation "androidx.navigation:navigation-ui:${rootProject.ext.nav_version}"
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.converter_gson_version}"
+    implementation "com.google.code.gson:gson:${rootProject.ext.gson_version}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.ext.coroutines_version}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.coroutines_version}"
+    implementation "androidx.paging:paging-runtime:${rootProject.ext.paging_version}"
+    kapt "com.android.databinding:compiler:${rootProject.ext.dataBinding_compiler_version}"
+    implementation "com.just.agentweb:agentweb:${rootProject.ext.agentweb_version}"
 }

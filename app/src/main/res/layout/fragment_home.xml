@@ -11,10 +11,10 @@
         android:layout_height="match_parent"
         tools:context=".view.HomeFragment">
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_rv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/tab_home" />
+            android:layout_height="match_parent" />
 
     </FrameLayout>
 </layout>

@@ -28,10 +28,11 @@ abstract class BaseFragment<V : ViewDataBinding, T : BaseViewModel<V>> : Fragmen
         if (!ViewModelBus.INSTANCE.exist(classT)) {
             val viewModel: T = ViewModelBus.INSTANCE.provide(this, classT)
             viewModel.binding =
-                DataBindingUtil.bind(inflater.inflate(getLayoutId(), container, false))!!
+                DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
             initView()
             return viewModel.binding.root
         }
+        reInit()
         return ViewModelBus.INSTANCE.get(classT)?.binding?.root
     }
 
@@ -44,6 +45,13 @@ abstract class BaseFragment<V : ViewDataBinding, T : BaseViewModel<V>> : Fragmen
      * 初始化
      */
     open fun initView() {
+
+    }
+
+    /**
+     * Fragment再次载入时的初始化
+     */
+    open fun reInit() {
 
     }
 
