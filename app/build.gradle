@@ -56,4 +56,9 @@ dependencies {
     implementation "androidx.paging:paging-runtime:${rootProject.ext.paging_version}"
     kapt "com.android.databinding:compiler:${rootProject.ext.dataBinding_compiler_version}"
     implementation "com.just.agentweb:agentweb:${rootProject.ext.agentweb_version}"
+    implementation "com.scwang.smartrefresh:SmartRefreshLayout:${rootProject.ext.smartRefreshLayout_version}"
+    implementation "com.scwang.smartrefresh:SmartRefreshHeader:${rootProject.ext.smartRefreshLayout_header_version}"
+    implementation "com.youth.banner:banner:${rootProject.ext.banner_version}"
+    implementation "com.github.bumptech.glide:glide:${rootProject.ext.glide_version}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide_version}"
 }

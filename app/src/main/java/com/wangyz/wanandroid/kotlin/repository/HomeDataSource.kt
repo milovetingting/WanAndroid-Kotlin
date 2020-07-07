@@ -5,8 +5,8 @@ import androidx.paging.PageKeyedDataSource
 import com.wangyz.wanandroid.kotlin.Config
 import com.wangyz.wanandroid.kotlin.api.API
 import com.wangyz.wanandroid.kotlin.bean.HomeResponse
+import com.wangyz.wanandroid.kotlin.extLaunch
 import com.wangyz.wanandroid.kotlin.net.APIClient
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,7 +38,7 @@ class HomeDataSource : PageKeyedDataSource<Int, HomeResponse.DataBean>() {
     }
 
     private fun load(callback: LoadInitialCallback<Int, HomeResponse.DataBean>) {
-        launch({
+        extLaunch({
             val data = APIClient.INSTANCE.initRetrofit(API::class.java).loadHome(page)
             callback.onResult(
                 data?.data?.datas as MutableList<HomeResponse.DataBean>,
@@ -57,7 +57,7 @@ class HomeDataSource : PageKeyedDataSource<Int, HomeResponse.DataBean>() {
     }
 
     private fun loadNext(callback: LoadCallback<Int, HomeResponse.DataBean>) {
-        launch({
+        extLaunch({
             val data = APIClient.INSTANCE.initRetrofit(API::class.java).loadHome(page)
             callback.onResult(
                 data?.data?.datas as MutableList<HomeResponse.DataBean>,
@@ -73,26 +73,6 @@ class HomeDataSource : PageKeyedDataSource<Int, HomeResponse.DataBean>() {
             }
 
         })
-    }
-
-    private fun launch(
-        block: suspend CoroutineScope.() -> Unit,
-        error: suspend CoroutineScope.(Throwable) -> Unit = {},
-        complete: suspend CoroutineScope.() -> Unit = {}
-    ) {
-        launchUI {
-            try {
-                block()
-            } catch (e: Throwable) {
-                error(e)
-            } finally {
-                complete()
-            }
-        }
-    }
-
-    private fun launchUI(block: suspend CoroutineScope.() -> Unit) {
-        GlobalScope.launch { block() }
     }
 
 }

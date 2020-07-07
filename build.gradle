@@ -49,4 +49,8 @@ ext {
     paging_version = "2.1.0"
     dataBinding_compiler_version = "3.5.3"
     agentweb_version = "4.0.2"
+    smartRefreshLayout_version = "1.1.0-alpha-14"
+    smartRefreshLayout_header_version = "1.1.0-alpha-14"
+    banner_version = "1.4.10"
+    glide_version = "4.8.0"
 }
