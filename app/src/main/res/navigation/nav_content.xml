@@ -30,4 +30,9 @@
         android:name="com.wangyz.wanandroid.kotlin.view.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/architectureDetailFragment"
+        android:name="com.wangyz.wanandroid.kotlin.view.ArchitectureDetailFragment"
+        android:label="fragment_architecture_detail"
+        tools:layout="@layout/fragment_architecture_detail" />
 </navigation>

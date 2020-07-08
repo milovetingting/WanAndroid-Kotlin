@@ -14,5 +14,6 @@
 
     <dimen name="banner_height">200dp</dimen>
 
-
+    <dimen name="main_list_item_marginTop">10dp</dimen>
+    <dimen name="main_list_item_cardview">10dp</dimen>
 </resources>

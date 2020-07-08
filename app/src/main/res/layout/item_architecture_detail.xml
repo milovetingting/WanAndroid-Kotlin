@@ -6,11 +6,11 @@
 
         <variable
             name="item"
-            type="com.wangyz.wanandroid.kotlin.bean.HomeResponse.DataBean" />
+            type="com.wangyz.wanandroid.kotlin.bean.ArchitectureDetailResponse.DataBean" />
 
         <variable
             name="click"
-            type="com.wangyz.wanandroid.kotlin.view.ArticleFragment.ClickProxy" />
+            type="com.wangyz.wanandroid.kotlin.adapter.ArchitectureDetailAdapter.ClickProxy" />
 
     </data>
 

@@ -8,6 +8,6 @@ import com.wangyz.wanandroid.kotlin.net.APIClient
 object HomeModel {
 
     suspend fun loadBanner(): ResponseWrapper<List<BannerResponse>> {
-        return APIClient.INSTANCE.initRetrofit(API::class.java).loadBanner()
+        return APIClient.INSTANCE.retrofit(API::class.java).loadBanner()
     }
 }

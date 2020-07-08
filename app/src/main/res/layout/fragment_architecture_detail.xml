@@ -9,12 +9,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.ArchitectureFragment">
+        tools:context=".view.ArchitectureDetailFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/architecture_rv"
+            android:id="@+id/architecture_detail_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
 
     </FrameLayout>
 </layout>

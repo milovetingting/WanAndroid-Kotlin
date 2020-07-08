@@ -12,7 +12,7 @@ class APIClient {
         val INSTANCE = APIClient()
     }
 
-    fun <T> initRetrofit(clazz: Class<T>): T {
+    fun <T> retrofit(clazz: Class<T>): T {
         val okHttpClient = OkHttpClient().newBuilder().readTimeout(10000, TimeUnit.SECONDS)
             .connectTimeout(10000, TimeUnit.SECONDS).writeTimeout(10000, TimeUnit.SECONDS).build()
         val retrofit: Retrofit =

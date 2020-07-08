@@ -9,4 +9,8 @@
     <color name="item_stoke">#009688</color>
 
     <color name="baseBackground">#FFFFFF</color>
+
+    <color name="tag_bg">#06B3ED</color>
+
+    <color name="card_bg">#FFFFFF</color>
 </resources>
