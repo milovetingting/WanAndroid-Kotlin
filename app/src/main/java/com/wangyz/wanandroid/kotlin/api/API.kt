@@ -20,4 +20,10 @@ interface API {
     @GET(Config.URL_ARCHITECTURE_DETAIL)
     suspend fun loadArchitectureDetail(@Path("page") page: Int, @Query("cid") cid: Int): ResponseWrapper<ArchitectureDetailResponse>
 
+    @GET(Config.URL_PROJECT)
+    suspend fun loadProject(): ResponseWrapper<List<ProjectResponse>>
+
+    @GET(Config.URL_PROJECT_DETAIL)
+    suspend fun loadProjectDetail(@Path("page") page: Int, @Query("cid") cid: Int): ResponseWrapper<ProjectDetailResponse>
+
 }

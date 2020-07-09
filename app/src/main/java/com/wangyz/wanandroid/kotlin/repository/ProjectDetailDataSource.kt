@@ -4,28 +4,28 @@ import android.util.Log
 import androidx.paging.PageKeyedDataSource
 import com.wangyz.wanandroid.kotlin.Config
 import com.wangyz.wanandroid.kotlin.api.API
-import com.wangyz.wanandroid.kotlin.bean.ArchitectureDetailResponse
+import com.wangyz.wanandroid.kotlin.bean.ProjectDetailResponse
 import com.wangyz.wanandroid.kotlin.extLaunch
 import com.wangyz.wanandroid.kotlin.net.APIClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class ArchitectureDataSource(private val cid: Int) :
-    PageKeyedDataSource<Int, ArchitectureDetailResponse.DataBean>() {
+class ProjectDetailDataSource(private val cid: Int) :
+    PageKeyedDataSource<Int, ProjectDetailResponse.DataBean>() {
 
     private var page = 0
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,
-        callback: LoadInitialCallback<Int, ArchitectureDetailResponse.DataBean>
+        callback: LoadInitialCallback<Int, ProjectDetailResponse.DataBean>
     ) {
         load(callback)
     }
 
     override fun loadAfter(
         params: LoadParams<Int>,
-        callback: LoadCallback<Int, ArchitectureDetailResponse.DataBean>
+        callback: LoadCallback<Int, ProjectDetailResponse.DataBean>
     ) {
         page++
         loadNext(callback)
@@ -33,17 +33,17 @@ class ArchitectureDataSource(private val cid: Int) :
 
     override fun loadBefore(
         params: LoadParams<Int>,
-        callback: LoadCallback<Int, ArchitectureDetailResponse.DataBean>
+        callback: LoadCallback<Int, ProjectDetailResponse.DataBean>
     ) {
 
     }
 
-    private fun load(callback: LoadInitialCallback<Int, ArchitectureDetailResponse.DataBean>) {
+    private fun load(callback: LoadInitialCallback<Int, ProjectDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadArchitectureDetail(page, cid)
+                APIClient.INSTANCE.retrofit(API::class.java).loadProjectDetail(page, cid)
             callback.onResult(
-                data?.data?.datas as MutableList<ArchitectureDetailResponse.DataBean>,
+                data?.data?.datas as MutableList<ProjectDetailResponse.DataBean>,
                 page - 1, page
             )
         }, { e ->
@@ -58,12 +58,12 @@ class ArchitectureDataSource(private val cid: Int) :
         })
     }
 
-    private fun loadNext(callback: LoadCallback<Int, ArchitectureDetailResponse.DataBean>) {
+    private fun loadNext(callback: LoadCallback<Int, ProjectDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadArchitectureDetail(page, cid)
+                APIClient.INSTANCE.retrofit(API::class.java).loadProjectDetail(page, cid)
             callback.onResult(
-                data?.data?.datas as MutableList<ArchitectureDetailResponse.DataBean>,
+                data?.data?.datas as MutableList<ProjectDetailResponse.DataBean>,
                 page
             )
         }, { e ->

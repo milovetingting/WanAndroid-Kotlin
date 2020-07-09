@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="data"
+            type="com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -18,16 +21,29 @@
             android:layout_height="match_parent"
             tools:context=".view.MainActivity">
 
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/head_height"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="@{data.head}"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <!-- 内容区域 -->
             <fragment
                 android:id="@+id/content_fragment_host"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/head_height"
                 app:defaultNavHost="true"
                 app:layout_constraintBottom_toTopOf="@id/bottom_fragment_host"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/head"
                 app:navGraph="@navigation/nav_content" />
 
             <!-- 底部导航区域 -->

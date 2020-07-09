@@ -2,7 +2,6 @@ package com.wangyz.wanandroid.kotlin.adapter
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.wangyz.wanandroid.kotlin.BR
-import com.wangyz.wanandroid.kotlin.Config
 import com.wangyz.wanandroid.kotlin.R
 import com.wangyz.wanandroid.kotlin.bean.ArchitectureResponse
 import com.wangyz.wanandroid.kotlin.databinding.ItemArchitectureBinding
@@ -58,6 +56,7 @@ class ArchitectureAdapter(val context: Context?) :
             val bean = bean?.children?.get(position)
             val bundle = Bundle()
             bundle.putInt("cid", bean?.id!!)
+            bundle.putString("name", bean?.name)
             Navigation.findNavController(view).navigate(R.id.architectureDetailFragment, bundle)
             ViewModelBus.INSTANCE.get(BottomViewModel::class.java)?.binding?.root?.visibility =
                 View.GONE

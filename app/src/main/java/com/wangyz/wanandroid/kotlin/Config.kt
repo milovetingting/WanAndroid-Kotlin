@@ -8,4 +8,6 @@ object Config {
     const val URL_HOME = "/article/list/{page}/json"
     const val URL_ARCHITECTURE = "/tree/json"
     const val URL_ARCHITECTURE_DETAIL = "/article/list/{page}/json"
+    const val URL_PROJECT = "/project/tree/json"
+    const val URL_PROJECT_DETAIL = "/project/list/{page}/json"
 }

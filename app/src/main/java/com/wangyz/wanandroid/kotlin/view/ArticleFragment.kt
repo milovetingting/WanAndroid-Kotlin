@@ -14,6 +14,7 @@ import com.wangyz.wanandroid.kotlin.databinding.FragmentArticleBinding
 import com.wangyz.wanandroid.kotlin.view.base.BaseFragment
 import com.wangyz.wanandroid.kotlin.viewmodel.ArticleViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.BottomViewModel
+import com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 
 /**
@@ -37,6 +38,7 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>()
         viewModel.agentWeb.agentWebSettings.webSettings.loadWithOverviewMode = true
         val title = arguments!!.getString("title")
         viewModel.binding.setVariable(BR.title, title)
+        ViewModelBus.INSTANCE.get(ShareViewModel::class.java)!!.head.postValue(title)
     }
 
     override fun reInit() {
@@ -48,6 +50,7 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>()
         ).useDefaultIndicator().createAgentWeb().ready().go(viewModel.url)
         val title = arguments!!.getString("title")
         viewModel.binding.setVariable(BR.title, title)
+        ViewModelBus.INSTANCE.get(ShareViewModel::class.java)!!.head.postValue(title)
     }
 
     class ClickProxy {

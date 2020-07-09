@@ -15,6 +15,7 @@ import com.wangyz.wanandroid.kotlin.view.base.BaseFragment
 import com.wangyz.wanandroid.kotlin.view.custom.SpaceItemDecoration
 import com.wangyz.wanandroid.kotlin.viewmodel.ArchitectureViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.BottomViewModel
+import com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 
 /**
@@ -59,6 +60,13 @@ class ArchitectureFragment : BaseFragment<FragmentArchitectureBinding, Architect
             viewModel?.binding!!.architectureRv.adapter = viewModel?.adapter
         })
         viewModel?.loadArchitecture()
+        ViewModelBus.INSTANCE.get(ShareViewModel::class.java)!!.head.postValue(getString(R.string.tab_architecture))
+    }
+
+    override fun reInit() {
+        ViewModelBus.INSTANCE.get(ShareViewModel::class.java)!!.head.postValue(getString(R.string.tab_architecture))
+        ViewModelBus.INSTANCE.get(BottomViewModel::class.java)?.binding?.root?.visibility =
+            View.VISIBLE
     }
 
 }

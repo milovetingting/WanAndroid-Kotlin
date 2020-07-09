@@ -6,11 +6,11 @@
 
         <variable
             name="item"
-            type="com.wangyz.wanandroid.kotlin.bean.ArchitectureDetailResponse.DataBean" />
+            type="com.wangyz.wanandroid.kotlin.bean.ProjectDetailResponse.DataBean" />
 
         <variable
             name="click"
-            type="com.wangyz.wanandroid.kotlin.adapter.ArchitectureDetailAdapter.ClickProxy" />
+            type="com.wangyz.wanandroid.kotlin.adapter.ProjectDetailAdapter.ClickProxy" />
 
     </data>
 
@@ -30,13 +30,23 @@
             android:onClick="@{(view)->click.openArticle(view,item)}"
             android:padding="@dimen/item_padding">
 
+            <ImageView
+                android:id="@+id/iv"
+                imageUrl="@{item.envelopePic}"
+                android:layout_width="@dimen/project_item_image_width"
+                android:layout_height="@dimen/project_item_image_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/item_home_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/project_item_title_marginLeft"
+                android:layout_marginRight="@dimen/project_item_title_marginRight"
                 android:maxLines="2"
                 android:text="@{item.title}"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -46,7 +56,7 @@
                 android:layout_marginTop="@dimen/item_home_marginTop"
                 android:gravity="center_vertical"
                 android:text="@{item.author}"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/item_home_title"
                 app:layout_constraintTop_toBottomOf="@id/item_home_title" />
 
             <TextView
@@ -58,16 +68,7 @@
                 android:maxLines="1"
                 android:text="@{item.superChapterName+'/'+item.chapterName}"
                 android:textColor="@color/colorPrimary"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_home_author" />
-
-            <TextView
-                android:id="@+id/item_home_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/item_home_marginTop"
-                android:text="@{item.niceDate}"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/item_home_title"
                 app:layout_constraintTop_toBottomOf="@id/item_home_author" />
 
             <ImageView
@@ -75,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/selector_favorite"
-                app:layout_constraintBottom_toTopOf="@id/item_home_time"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/item_home_title" />
 

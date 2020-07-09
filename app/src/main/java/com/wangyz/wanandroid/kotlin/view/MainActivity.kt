@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.wangyz.wanandroid.kotlin.R
 import com.wangyz.wanandroid.kotlin.viewmodel.MainViewModel
+import com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         val viewModel: MainViewModel =
             ViewModelBus.INSTANCE.provide(this, MainViewModel::class.java)
         viewModel.binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        viewModel.binding.data = ViewModelBus.INSTANCE.provide(this, ShareViewModel::class.java)
+        viewModel.binding.lifecycleOwner = this
     }
 
     override fun onDestroy() {

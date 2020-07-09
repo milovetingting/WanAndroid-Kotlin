@@ -18,6 +18,7 @@ import com.wangyz.wanandroid.kotlin.view.custom.GlideImageLoader
 import com.wangyz.wanandroid.kotlin.view.custom.SpaceItemDecoration
 import com.wangyz.wanandroid.kotlin.viewmodel.BottomViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.HomeViewModel
+import com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
@@ -83,9 +84,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             viewModel.binding.banner.start()
         })
         viewModel.loadBanner()
+
+        ViewModelBus.INSTANCE.get(ShareViewModel::class.java)!!.head.postValue(getString(R.string.tab_home))
     }
 
     override fun reInit() {
+        ViewModelBus.INSTANCE.get(ShareViewModel::class.java)!!.head.postValue(getString(R.string.tab_home))
         ViewModelBus.INSTANCE.get(BottomViewModel::class.java)?.binding?.root?.visibility =
             View.VISIBLE
     }

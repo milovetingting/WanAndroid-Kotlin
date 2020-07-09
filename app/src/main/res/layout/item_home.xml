@@ -27,7 +27,6 @@
             android:id="@+id/home_item_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_item"
             android:onClick="@{(view)->click.openArticle(view,item)}"
             android:padding="@dimen/item_padding">
 
