@@ -9,10 +9,10 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.WxFragment">
+        tools:context=".view.WxDetailFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/wx_rv"
+            android:id="@+id/wx_detail_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

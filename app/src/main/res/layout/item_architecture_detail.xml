@@ -6,6 +6,8 @@
 
         <import type="android.text.TextUtils" />
 
+        <import type="org.apache.commons.lang3.StringEscapeUtils" />
+
         <variable
             name="item"
             type="com.wangyz.wanandroid.kotlin.bean.ArchitectureDetailResponse.DataBean" />
@@ -37,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
-                android:text="@{item.title}"
+                android:text="@{StringEscapeUtils.unescapeHtml4(item.title)}"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

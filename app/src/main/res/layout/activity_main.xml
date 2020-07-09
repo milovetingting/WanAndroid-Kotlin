@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="org.apache.commons.lang3.StringEscapeUtils" />
+
         <variable
             name="data"
             type="com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel" />
@@ -27,9 +29,10 @@
                 android:layout_height="@dimen/head_height"
                 android:background="@color/colorPrimary"
                 android:gravity="center"
-                android:text="@{data.head}"
+                android:maxLines="2"
+                android:text="@{StringEscapeUtils.unescapeHtml4(data.head)}"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="@dimen/head_textSize"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

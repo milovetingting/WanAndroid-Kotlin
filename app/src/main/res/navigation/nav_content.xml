@@ -40,4 +40,9 @@
         android:name="com.wangyz.wanandroid.kotlin.view.ProjectDetailFragment"
         android:label="fragment_project_detail"
         tools:layout="@layout/fragment_project_detail" />
+    <fragment
+        android:id="@+id/wxDetailFragment"
+        android:name="com.wangyz.wanandroid.kotlin.view.WxDetailFragment"
+        android:label="fragment_wx_detail"
+        tools:layout="@layout/fragment_wx_detail" />
 </navigation>

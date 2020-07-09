@@ -10,4 +10,6 @@ object Config {
     const val URL_ARCHITECTURE_DETAIL = "/article/list/{page}/json"
     const val URL_PROJECT = "/project/tree/json"
     const val URL_PROJECT_DETAIL = "/project/list/{page}/json"
+    const val URL_WX = "/wxarticle/chapters/json  "
+    const val URL_WX_DETAIL = "/wxarticle/list/{cid}/{page}/json"
 }

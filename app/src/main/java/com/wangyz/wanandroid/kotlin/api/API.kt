@@ -26,4 +26,10 @@ interface API {
     @GET(Config.URL_PROJECT_DETAIL)
     suspend fun loadProjectDetail(@Path("page") page: Int, @Query("cid") cid: Int): ResponseWrapper<ProjectDetailResponse>
 
+    @GET(Config.URL_WX)
+    suspend fun loadWx(): ResponseWrapper<List<WxResponse>>
+
+    @GET(Config.URL_WX_DETAIL)
+    suspend fun loadWxDetail(@Path("page") page: Int, @Path("cid") cid: Int): ResponseWrapper<WxDetailResponse>
+
 }
