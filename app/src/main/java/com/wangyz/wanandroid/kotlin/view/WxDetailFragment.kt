@@ -2,7 +2,6 @@ package com.wangyz.wanandroid.kotlin.view
 
 
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +17,7 @@ import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 import com.wangyz.wanandroid.kotlin.viewmodel.WxDetailViewModel
 
 /**
- * A simple [Fragment] subclass.
+ * 公众号二级分类Fragment
  */
 class WxDetailFragment : BaseFragment<FragmentWxDetailBinding, WxDetailViewModel>() {
     override val classT: Class<WxDetailViewModel>

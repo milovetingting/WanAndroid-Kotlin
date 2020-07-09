@@ -10,7 +10,7 @@
 
         <variable
             name="click"
-            type="com.wangyz.wanandroid.kotlin.adapter.WxAdapter.ClickProxy" />
+            type="com.wangyz.wanandroid.kotlin.binding.ClickProxy" />
     </data>
 
     <androidx.cardview.widget.CardView

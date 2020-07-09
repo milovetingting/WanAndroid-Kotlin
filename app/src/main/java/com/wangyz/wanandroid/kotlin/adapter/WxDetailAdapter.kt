@@ -1,20 +1,17 @@
 package com.wangyz.wanandroid.kotlin.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wangyz.wanandroid.kotlin.BR
 import com.wangyz.wanandroid.kotlin.R
 import com.wangyz.wanandroid.kotlin.bean.WxDetailResponse
+import com.wangyz.wanandroid.kotlin.binding.ClickProxy
 import com.wangyz.wanandroid.kotlin.databinding.ItemWxDetailBinding
-import com.wangyz.wanandroid.kotlin.viewmodel.BottomViewModel
-import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 
 class WxDetailAdapter :
     PagedListAdapter<WxDetailResponse.DataBean, WxDetailAdapter.RecyclerViewHolder>(
@@ -62,16 +59,5 @@ class WxDetailAdapter :
                     return oldItem == newItem
                 }
             }
-    }
-
-    class ClickProxy {
-        fun openArticle(view: View, article: WxDetailResponse.DataBean) {
-            val bundle = Bundle()
-            bundle.putString("title", article.title)
-            bundle.putString("url", article.link)
-            Navigation.findNavController(view).navigate(R.id.articleFragment, bundle)
-            ViewModelBus.INSTANCE.get(BottomViewModel::class.java)?.binding?.root?.visibility =
-                View.GONE
-        }
     }
 }

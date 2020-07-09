@@ -45,4 +45,14 @@
         android:name="com.wangyz.wanandroid.kotlin.view.WxDetailFragment"
         android:label="fragment_wx_detail"
         tools:layout="@layout/fragment_wx_detail" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.wangyz.wanandroid.kotlin.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.wangyz.wanandroid.kotlin.view.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

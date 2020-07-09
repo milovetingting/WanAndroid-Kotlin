@@ -6,7 +6,7 @@ import com.wangyz.wanandroid.kotlin.Config
 import com.wangyz.wanandroid.kotlin.api.API
 import com.wangyz.wanandroid.kotlin.bean.ProjectDetailResponse
 import com.wangyz.wanandroid.kotlin.extLaunch
-import com.wangyz.wanandroid.kotlin.net.APIClient
+import com.wangyz.wanandroid.kotlin.net.APIService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -41,7 +41,7 @@ class ProjectDetailDataSource(private val cid: Int) :
     private fun load(callback: LoadInitialCallback<Int, ProjectDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadProjectDetail(page, cid)
+                APIService.INSTANCE.service.loadProjectDetail(page, cid)
             callback.onResult(
                 data?.data?.datas as MutableList<ProjectDetailResponse.DataBean>,
                 page - 1, page
@@ -61,7 +61,7 @@ class ProjectDetailDataSource(private val cid: Int) :
     private fun loadNext(callback: LoadCallback<Int, ProjectDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadProjectDetail(page, cid)
+                APIService.INSTANCE.service.loadProjectDetail(page, cid)
             callback.onResult(
                 data?.data?.datas as MutableList<ProjectDetailResponse.DataBean>,
                 page

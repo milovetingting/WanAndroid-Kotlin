@@ -13,6 +13,7 @@ import com.wangyz.wanandroid.kotlin.extLaunch
 import com.wangyz.wanandroid.kotlin.model.HomeModel
 import com.wangyz.wanandroid.kotlin.repository.HomeDataSourceFactory
 import com.wangyz.wanandroid.kotlin.viewmodel.base.BaseViewModel
+import org.apache.commons.lang3.StringEscapeUtils
 
 class HomeViewModel : BaseViewModel<FragmentHomeBinding>() {
     var banner: MutableLiveData<List<BannerResponse>> = MutableLiveData()
@@ -31,7 +32,7 @@ class HomeViewModel : BaseViewModel<FragmentHomeBinding>() {
         extLaunch({
             HomeModel.loadBanner().data.forEach {
                 images.add(it.imagePath)
-                titles.add(it.title)
+                titles.add(StringEscapeUtils.unescapeHtml4(it.title))
                 urls.add(it.url)
             }
             banner.postValue(HomeModel.loadBanner().data)

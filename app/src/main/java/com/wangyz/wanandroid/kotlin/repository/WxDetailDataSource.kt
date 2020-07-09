@@ -3,10 +3,9 @@ package com.wangyz.wanandroid.kotlin.repository
 import android.util.Log
 import androidx.paging.PageKeyedDataSource
 import com.wangyz.wanandroid.kotlin.Config
-import com.wangyz.wanandroid.kotlin.api.API
 import com.wangyz.wanandroid.kotlin.bean.WxDetailResponse
 import com.wangyz.wanandroid.kotlin.extLaunch
-import com.wangyz.wanandroid.kotlin.net.APIClient
+import com.wangyz.wanandroid.kotlin.net.APIService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -41,7 +40,7 @@ class WxDetailDataSource(private val cid: Int) :
     private fun load(callback: LoadInitialCallback<Int, WxDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadWxDetail(page, cid)
+                APIService.INSTANCE.service.loadWxDetail(page, cid)
             callback.onResult(
                 data?.data?.datas as MutableList<WxDetailResponse.DataBean>,
                 page - 1, page
@@ -61,7 +60,7 @@ class WxDetailDataSource(private val cid: Int) :
     private fun loadNext(callback: LoadCallback<Int, WxDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadWxDetail(page, cid)
+                APIService.INSTANCE.service.loadWxDetail(page, cid)
             callback.onResult(
                 data?.data?.datas as MutableList<WxDetailResponse.DataBean>,
                 page

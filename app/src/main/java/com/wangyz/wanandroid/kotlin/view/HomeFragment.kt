@@ -8,6 +8,7 @@ import androidx.navigation.Navigation
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.wangyz.wanandroid.kotlin.R
 import com.wangyz.wanandroid.kotlin.adapter.HomeAdapter
 import com.wangyz.wanandroid.kotlin.bean.BannerResponse

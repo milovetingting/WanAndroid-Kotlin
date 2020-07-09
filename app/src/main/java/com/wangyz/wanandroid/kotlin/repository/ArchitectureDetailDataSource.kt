@@ -6,7 +6,7 @@ import com.wangyz.wanandroid.kotlin.Config
 import com.wangyz.wanandroid.kotlin.api.API
 import com.wangyz.wanandroid.kotlin.bean.ArchitectureDetailResponse
 import com.wangyz.wanandroid.kotlin.extLaunch
-import com.wangyz.wanandroid.kotlin.net.APIClient
+import com.wangyz.wanandroid.kotlin.net.APIService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -41,7 +41,7 @@ class ArchitectureDetailDataSource(private val cid: Int) :
     private fun load(callback: LoadInitialCallback<Int, ArchitectureDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadArchitectureDetail(page, cid)
+                APIService.INSTANCE.service.loadArchitectureDetail(page, cid)
             callback.onResult(
                 data?.data?.datas as MutableList<ArchitectureDetailResponse.DataBean>,
                 page - 1, page
@@ -61,7 +61,7 @@ class ArchitectureDetailDataSource(private val cid: Int) :
     private fun loadNext(callback: LoadCallback<Int, ArchitectureDetailResponse.DataBean>) {
         extLaunch({
             val data =
-                APIClient.INSTANCE.retrofit(API::class.java).loadArchitectureDetail(page, cid)
+                APIService.INSTANCE.service.loadArchitectureDetail(page, cid)
             callback.onResult(
                 data?.data?.datas as MutableList<ArchitectureDetailResponse.DataBean>,
                 page

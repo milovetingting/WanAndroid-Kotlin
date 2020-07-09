@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".view.MenuFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</FrameLayout>
+    <data>
+
+        <variable
+            name="data"
+            type="com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        tools:context=".view.MenuFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_item_height"
+            android:text="用户名" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_item_height"
+            android:text="收藏" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_item_height"
+            android:text="退出"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</layout>

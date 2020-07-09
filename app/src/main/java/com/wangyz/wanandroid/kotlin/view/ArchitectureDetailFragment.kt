@@ -2,7 +2,6 @@ package com.wangyz.wanandroid.kotlin.view
 
 
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +17,7 @@ import com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 
 /**
- * A simple [Fragment] subclass.
+ * 体系二级分类Fragment
  */
 class ArchitectureDetailFragment :
     BaseFragment<FragmentArchitectureDetailBinding, ArchitectureDetailViewModel>() {

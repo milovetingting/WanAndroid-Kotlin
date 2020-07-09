@@ -14,7 +14,7 @@
 
         <variable
             name="click"
-            type="com.wangyz.wanandroid.kotlin.view.ArticleFragment.ClickProxy" />
+            type="com.wangyz.wanandroid.kotlin.binding.ClickProxy" />
 
     </data>
 
@@ -78,8 +78,10 @@
 
             <ImageView
                 android:id="@+id/item_home_favorite"
+                collect="@{item.collect}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{(view)->click.collect(view,item.id,item.collect)}"
                 android:src="@drawable/selector_favorite"
                 app:layout_constraintBottom_toTopOf="@id/item_home_time"
                 app:layout_constraintEnd_toEndOf="parent"

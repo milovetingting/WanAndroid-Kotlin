@@ -62,4 +62,5 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:${rootProject.ext.glide_version}"
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide_version}"
     implementation "com.hyman:flowlayout-lib:${rootProject.ext.flowLayout_version}"
+    implementation "com.github.franmontiel:PersistentCookieJar:${rootProject.ext.cookieJar_version}"
 }

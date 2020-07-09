@@ -6,8 +6,11 @@ import android.view.Gravity
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
+import com.wangyz.wanandroid.kotlin.Config
 import com.wangyz.wanandroid.kotlin.R
+import com.wangyz.wanandroid.kotlin.utils.SharedPreferencesUtil
 import com.wangyz.wanandroid.kotlin.viewmodel.MainViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
@@ -19,8 +22,12 @@ class MainActivity : AppCompatActivity() {
         val viewModel: MainViewModel =
             ViewModelBus.INSTANCE.provide(this, MainViewModel::class.java)
         viewModel.binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel.binding.data = ViewModelBus.INSTANCE.provide(this, ShareViewModel::class.java)
+        val shareViewModel = ViewModelBus.INSTANCE.provide(this, ShareViewModel::class.java)
+        shareViewModel.login = SharedPreferencesUtil.get(this, Config.CONFIG_KEY_LOGIN, false)!!
+        viewModel.binding.data = shareViewModel
         viewModel.binding.lifecycleOwner = this
+        val drawer = ViewModelBus.INSTANCE.get(MainViewModel::class.java)!!.binding.mainDrawer
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
     }
 
     override fun onDestroy() {

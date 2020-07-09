@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.wangyz.wanandroid.kotlin.BR
 import com.wangyz.wanandroid.kotlin.R
 import com.wangyz.wanandroid.kotlin.bean.HomeResponse
+import com.wangyz.wanandroid.kotlin.binding.ClickProxy
 import com.wangyz.wanandroid.kotlin.databinding.ItemHomeBinding
-import com.wangyz.wanandroid.kotlin.view.ArticleFragment
 
 class HomeAdapter :
     PagedListAdapter<HomeResponse.DataBean, HomeAdapter.RecyclerViewHolder>((DIFF_STUDENT)) {
@@ -34,7 +34,7 @@ class HomeAdapter :
 
         init {
             binding = DataBindingUtil.bind(itemView)!!
-            binding!!.setVariable(BR.click, ArticleFragment.ClickProxy())
+            binding!!.setVariable(BR.click, ClickProxy())
         }
     }
 

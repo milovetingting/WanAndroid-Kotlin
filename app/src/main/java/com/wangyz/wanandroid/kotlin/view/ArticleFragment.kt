@@ -18,7 +18,7 @@ import com.wangyz.wanandroid.kotlin.viewmodel.ShareViewModel
 import com.wangyz.wanandroid.kotlin.viewmodel.ViewModelBus
 
 /**
- * A simple [Fragment] subclass.
+ * 文章Fragment
  */
 class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>() {
 
@@ -51,17 +51,6 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding, ArticleViewModel>()
         val title = arguments!!.getString("title")
         viewModel.binding.setVariable(BR.title, title)
         ViewModelBus.INSTANCE.get(ShareViewModel::class.java)!!.head.postValue(title)
-    }
-
-    class ClickProxy {
-        fun openArticle(view: View, article: HomeResponse.DataBean) {
-            val bundle = Bundle()
-            bundle.putString("title", article.title)
-            bundle.putString("url", article.link)
-            Navigation.findNavController(view).navigate(R.id.articleFragment, bundle)
-            ViewModelBus.INSTANCE.get(BottomViewModel::class.java)?.binding?.root?.visibility =
-                View.GONE
-        }
     }
 
 }

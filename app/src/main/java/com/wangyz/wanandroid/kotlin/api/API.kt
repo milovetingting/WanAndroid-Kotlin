@@ -2,9 +2,7 @@ package com.wangyz.wanandroid.kotlin.api
 
 import com.wangyz.wanandroid.kotlin.Config
 import com.wangyz.wanandroid.kotlin.bean.*
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface API {
 
@@ -31,5 +29,9 @@ interface API {
 
     @GET(Config.URL_WX_DETAIL)
     suspend fun loadWxDetail(@Path("page") page: Int, @Path("cid") cid: Int): ResponseWrapper<WxDetailResponse>
+
+    @POST(Config.URL_LOGIN)
+    @FormUrlEncoded
+    suspend fun login(@Field("username") username: String, @Field("password") password: String): ResponseWrapper<LoginResponse>
 
 }

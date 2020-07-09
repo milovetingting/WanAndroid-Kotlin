@@ -1,7 +1,6 @@
 package com.wangyz.wanandroid.kotlin.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.wangyz.wanandroid.kotlin.adapter.ProjectAdapter
 import com.wangyz.wanandroid.kotlin.adapter.WxAdapter
 import com.wangyz.wanandroid.kotlin.bean.WxResponse
 import com.wangyz.wanandroid.kotlin.databinding.FragmentWxBinding

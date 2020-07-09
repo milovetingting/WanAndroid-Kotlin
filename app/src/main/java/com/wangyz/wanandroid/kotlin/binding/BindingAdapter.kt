@@ -1,4 +1,4 @@
-package com.wangyz.wanandroid.kotlin.adapter
+package com.wangyz.wanandroid.kotlin.binding
 
 import android.widget.ImageView
 import android.widget.TextView
@@ -41,6 +41,12 @@ class BindingAdapter {
                 view.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, null, null, null)
                 view.compoundDrawablePadding = 10
             }
+        }
+
+        @JvmStatic
+        @BindingAdapter("collect")
+        fun bindCollect(view: ImageView, collect: Boolean) {
+            view.isSelected = collect
         }
     }
 
